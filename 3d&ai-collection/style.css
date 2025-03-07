@@ -240,7 +240,7 @@ nav ul li a:hover {
     }
 
     nav .logo {
-        margin-left: 20px; /* Mengurangi margin untuk layar menengah */
+        margin-left: 10px; /* Mengurangi margin untuk layar menengah */
     }
 
     .landing-content {
@@ -271,7 +271,7 @@ nav ul li a:hover {
     }
 
     nav .logo {
-        margin-left: 10px; /* Mengurangi margin lebih jauh untuk layar kecil */
+        margin-left: 2px; /* Mengurangi margin lebih jauh untuk layar kecil */
         margin-top: 10px; /* Penyesuaian kecil untuk layar kecil */
     }
 
