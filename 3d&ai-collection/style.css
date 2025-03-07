@@ -1,9 +1,9 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #e6e6fa, #dda0dd);
-    min-height: 100vh;
-    position: relative;
+    color: #2c3e50;
 }
 
 nav {
@@ -11,35 +11,48 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: transparent;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
-.logo {
-    margin-left: 40px;
+nav .logo {
+    margin-left: 40px; /* Margin default untuk layar besar */
     margin-top: 20px;
 }
 
-.logo img {
+nav .logo img {
     height: 40px;
-    max-width: 100%;
+    max-width: 80%;
     object-fit: contain;
 }
 
-@media screen and (max-width: 768px) {
-    .logo img {
-        height: 30px;
-    }
+nav .menu-toggle {
+    display: none;
+    visibility: hidden;
 }
 
-@media screen and (max-width: 480px) {
-    .logo img {
-        height: 25px;
-    }
+/* Ikon Burger */
+nav .menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
+/* Ikon burger dengan CSS (3 garis horizontal) */
+nav .menu-icon::before {
+    content: "\2630";
+    line-height: 24px;
+}
+
+/* Menu */
 nav ul {
     list-style: none;
     display: flex;
@@ -49,14 +62,19 @@ nav ul {
 }
 
 nav ul li a {
-    text-decoration: none;
     color: #333;
+    text-decoration: none;
     font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #666;
 }
 
 .landing-content {
     text-align: left;
     padding: 150px 20px 20px 50px;
+    padding-top: 100px;
     position: relative;
     z-index: 1;
     max-width: 600px;
@@ -74,19 +92,18 @@ nav ul li a {
     margin-bottom: 30px;
 }
 
-.collection-btn {
-    display: inline-block;
-    padding: 8px 15px;
-    background: linear-gradient(to right, #ff69b4, #ff1493);
-    color: white !important;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 18px;
-    transition: transform 0.3s;
+.collection-content {
+    text-align: center;
+    padding: 40px 20px;
+    padding-top: 100px;
+    position: relative;
+    z-index: 1;
 }
 
-.collection-btn:hover {
-    transform: scale(1.1);
+.collection-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 .image-grid {
@@ -138,156 +155,48 @@ nav ul li a {
     align-self: flex-end;
 }
 
-@media screen and (max-width: 768px) {
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .image-grid a {
-        min-height: 200px;
-        justify-content: space-between;
-    }
-
-    .image-grid img {
-        max-width: 100%;
-        object-fit: contain;
-        align-self: flex-start;
-    }
-
-    .image-text {
-        font-size: 14px;
-        align-self: flex-end;
-    }
-
-    .logo img {
-        height: 30px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .image-grid a {
-        min-height: 150px;
-        justify-content: space-between;
-    }
-
-    .image-grid img {
-        max-width: 100%;
-        object-fit: contain;
-        align-self: flex-start;
-    }
-
-    .image-text {
-        font-size: 12px;
-        align-self: flex-end;
-    }
-
-    .logo img {
-        height: 25px;
-    }
-}
-
-.collection-content {
-    text-align: center;
-    padding: 100px 20px 20px;
-    position: relative;
-    z-index: 1;
-}
-
 .detail-content {
     text-align: center;
-    padding: 100px 20px 20px;
+    padding: 40px 20px;
+    padding-top: 100px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
 }
 
 .detail-image-container {
-    display: inline-block;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: calc(100vh - 100px);
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .detail-image-flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
     gap: 20px;
+    justify-content: center;
 }
 
 .detail-image {
-    width: 23%;
+    max-width: 400px;
+    width: 100%;
     height: auto;
-    max-width: 100%;
     border-radius: 10px;
     object-fit: contain;
 }
 
-@media screen and (max-width: 768px) {
-    .detail-content {
-        padding: 80px 10px 20px;
-    }
-
-    .detail-image-container {
-        height: calc(100vh - 80px);
-    }
-
-    .detail-image-flex {
-        gap: 15px;
-    }
-
-    .detail-image {
-        width: 48%;
-    }
-
-    .logo img {
-        height: 30px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .detail-content {
-        padding: 60px 10px 20px;
-    }
-
-    .detail-image-container {
-        height: calc(100vh - 60px);
-    }
-
-    .detail-image-flex {
-        gap: 10px;
-        flex-direction: column;
-    }
-
-    .detail-image {
-        width: 100%;
-    }
-
-    .logo img {
-        height: 25px;
-    }
-}
-
-.detail-content p a {
-    display: block;
+.collection-btn {
+    display: inline-block;
     margin-top: 20px;
-    color: #ff1493;
+    padding: 8px 15px;
+    background: linear-gradient(to right, #ff69b4, #ff1493);
+    color: white !important;
     text-decoration: none;
-    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-.detail-content p a:hover {
-    text-decoration: underline;
+.collection-btn:hover {
+    background: linear-gradient(to right, #ff69b4, #ff1493);
+    transform: scale(1.1);
 }
 
 .background {
@@ -296,7 +205,7 @@ nav ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Memastikan background GIF selalu di belakang */
+    z-index: -1;
     overflow: hidden;
 }
 
@@ -304,8 +213,131 @@ nav ul li a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Memastikan gambar background juga di belakang */
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 15px;
+        margin-right: 20px;
+        padding: 0;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .detail-image {
+        max-width: 300px;
+    }
+
+    nav .logo img {
+        height: 40px;
+    }
+
+    nav .logo {
+        margin-left: 20px; /* Mengurangi margin untuk layar menengah */
+    }
+
+    .landing-content {
+        padding-top: 80px;
+    }
+
+    .collection-content {
+        padding-top: 80px;
+    }
+
+    .detail-content {
+        padding-top: 80px;
+    }
+
+    .image-grid a {
+        min-height: 200px;
+    }
+
+    .image-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav .logo {
+        margin-left: 10px; /* Mengurangi margin lebih jauh untuk layar kecil */
+        margin-top: 10px; /* Penyesuaian kecil untuk layar kecil */
+    }
+
+    nav .logo img {
+        height: 25px;
+    }
+
+    /* Tampilkan ikon burger di layar kecil */
+    nav .menu-icon {
+        display: block;
+    }
+
+    /* Sembunyikan menu teks di layar kecil */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 0;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #e6e6fa;
+        padding: 10px 0;
+    }
+
+    /* Tampilkan menu saat checkbox dicentang */
+    nav .menu-toggle:checked ~ ul {
+        display: flex;
+    }
+
+    /* Checkbox untuk toggle menu */
+    nav .menu-toggle {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .detail-image {
+        max-width: 100%;
+    }
+
+    .landing-content {
+        padding-top: 60px;
+    }
+
+    .collection-content {
+        padding-top: 60px;
+    }
+
+    .detail-content {
+        padding-top: 60px;
+    }
+
+    .image-grid a {
+        min-height: 150px;
+    }
+
+    .image-text {
+        font-size: 12px;
+    }
 }
