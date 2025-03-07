@@ -21,6 +21,9 @@ nav {
 nav .logo {
     margin-left: 40px; /* Margin default untuk layar besar */
     margin-top: 20px;
+    text-decoration: none; /* Hilangkan garis bawah default pada link */
+    display: block; /* Pastikan area klik mencakup seluruh elemen */
+    cursor: pointer; /* Tampilkan kursor pointer */
 }
 
 nav .logo img {
